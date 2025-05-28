@@ -91,10 +91,10 @@ model = tf.keras.models.load_model(MODEL_PATH)
 
 app = FastAPI()
 
-# Adjust to your frontend URL or use ["*"] to allow all (for testing)
+# CORS middleware to allow requests from your frontend on Netlify
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["https://petfolioo.netlify.app"],  # Frontend URL from Netlify
     allow_methods=["*"],
     allow_headers=["*"],
 )
